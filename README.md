@@ -1,7 +1,7 @@
 # Definability and Global Comparison Structures over J₂ = rud(HF)
 
 Author: Jürgen Bigalke 
-Status: Preprint (Version 1.0)  
+Status: Preprint (Version 1.1)  
 Discipline: Mathematical Logic (math.LO)  
 
 DOI: 10.5281/zenodo.18720082
