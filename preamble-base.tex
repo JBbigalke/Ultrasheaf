@@ -1,0 +1,62 @@
+%============================================================
+% preamble-base.tex
+% Base preamble file
+% Purpose:
+%   Core packages and theorem environments
+% Engine:
+%   pdfLaTeX
+%============================================================
+
+
+% -------------------------------------------------
+% Fonts and typography
+% -------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% -------------------------------------------------
+% Page layout
+% -------------------------------------------------
+\usepackage[margin=2.2cm]{geometry}
+
+% -------------------------------------------------
+% Mathematics
+% -------------------------------------------------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+% -------------------------------------------------
+% Lists and tables
+% -------------------------------------------------
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+
+% -------------------------------------------------
+% References and links
+% -------------------------------------------------
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfencoding=auto
+}
+\usepackage[nameinlink]{cleveref}
+
+% -------------------------------------------------
+% Theorem environments
+% -------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}

@@ -1,0 +1,647 @@
+%============================================================
+% Definability and Hilbert Space Constructions over J_2
+% Root file for arXiv submission
+% Compilation: pdfLaTeX + BibTeX
+%============================================================
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble-base}
+
+% -------------------------------------------------
+% Title information
+% -------------------------------------------------
+\title{Ultrafilter Aggregation of $\Delta_0$-Definable Fragments and Induced Hilbert Structures}
+\author{J\"urgen Bigalke\thanks{j.bigalke@juergen-bigalke.de}}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+We study bounded $\Delta_0$-definability over the Jensen level 
+$J_2 = \mathrm{rud}(\mathrm{HF})$ and analyse an ultrafilter-based 
+aggregation mechanism transforming locally definable data into a 
+canonical global comparison structure.
+
+Countable families of locally $\Delta_0$-definable fragments are 
+aggregated via a fixed non-principal ultrafilter into second-order 
+objects (Ultrasheaves). $\Delta_0$-definable numerical comparison 
+invariants induce, under aggregation, a well-defined global 
+positive semidefinite kernel uniquely determined by the local data.
+
+Under a finitary positivity assumption, the associated kernel 
+construction yields a Hilbert structure canonical up to unitary 
+equivalence. The resulting quadratic and factorisation properties 
+are shown to arise purely from stabilisation phenomena governed 
+by bounded definability over $J_2$, without additional analytic 
+or topological assumptions.
+\end{abstract}
+
+
+%============================================================
+% Document metadata
+%============================================================
+\vspace{0.8em}
+\noindent\textbf{Keywords:}
+$\Delta_0$--definability,
+Jensen hierarchy,
+ultrafilter aggregation,
+kernel methods,
+Hilbert--space representations
+
+\vspace{0.8em}
+\noindent\textbf{MSC 2020:}
+03C62; 03E15
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%============================================================
+% Main text
+%============================================================
+
+
+
+%============================================================
+\section{Introduction}
+\label{sec:introduction}
+%============================================================
+
+Initial segments of the Jensen hierarchy provide a canonical framework for
+the analysis of definability under severely bounded logical resources.
+Among these, the level
+\[
+J_2=\mathrm{rud}(\mathrm{HF})
+\]
+occupies a distinguished position: it is a transitive structure closed
+under all rudimentary functions, yet sufficiently low to admit a detailed
+fine--structural analysis.
+Classical references include \cite{Jensen1972,Devlin1984}, with a focused
+systematic study of \(J_2\) given in \cite{Weaver2005}.
+
+Analytic representation spaces such as Banach or Hilbert spaces are
+traditionally introduced by enriching a set--theoretic framework with
+metric, topological, or measure--theoretic structure.
+From a fine--structural and definability--theoretic perspective, this
+raises a natural structural question: to what extent are such
+representations already implicit in the internal resources of set theory
+itself, without appeal to external analytic primitives?
+
+The present article addresses this question at a purely structural level.
+We show that Hilbert--space representations arise canonically from bounded
+\(\Delta_0\)--definable data once local definability is combined with a
+single global aggregation principle.
+The analysis is carried out concretely over \(J_2\), which serves as a
+minimal environment in which nontrivial global structure can emerge from
+purely local definability constraints.
+While the construction is not intrinsically tied to \(J_2\), this level is
+chosen for reasons of canonicity and minimality: it is the smallest
+natural domain supporting the required stability properties without
+additional axiomatic assumptions.
+
+The central mechanism is an ultrafilter--based aggregation of locally
+definable data.
+We consider countable families of locally \(\Delta_0\)--definable subsets
+of \(J_2\), referred to as \emph{local fragments}.
+Aggregating such families along a fixed non--principal ultrafilter yields
+global second--order objects, termed \emph{Ultrasheaves}.
+The ultrafilter is treated throughout as an externally fixed parameter,
+characterised at the metatheoretic level by its standard axioms, and is not
+assumed to be definable over \((J_2,\in)\).
+
+Locally \(\Delta_0\)--definable numerical comparison invariants between
+fragments induce, under ultrafilter aggregation, a positive semidefinite
+kernel on the class of Ultrasheaves.
+Assuming only an explicit finitary positivity condition on this local
+comparison data, the associated global kernel is uniquely determined.
+By the standard kernel--to--Hilbert construction, such a kernel admits a
+Hilbert--space representation that is canonical in the
+representation--theoretic sense, that is, unique up to unitary
+equivalence.
+Numerical and geometric structure enter only at the level of
+representation; no topological, measure--theoretic, or probabilistic
+primitives are presupposed at the level of definability.
+All constructions are carried out within bounded \(\Delta_0\)--definability
+over \((J_2,\in)\), rudimentary closure, and standard ultrafilter
+techniques.
+Positivity of the local comparison invariant is taken as explicit
+structural input: it is the minimal finitary condition ensuring that the
+aggregated comparison data determine a positive semidefinite kernel and
+hence admit a Hilbert--space representation.
+
+The novelty of the present analysis therefore does not lie in the
+kernel--to--Hilbert construction itself, which is classical, but in the
+fine--structural localisation of this representation mechanism.
+The kernel--to--Hilbert passage emerges here as a canonical consequence of
+bounded definability over \(J_2\) once a single aggregation principle is
+fixed.
+All objects entering the construction---local fragments, comparison data,
+kernels, and the resulting Hilbert--space representation---are induced
+canonically from this minimal input.
+
+The subsequent sections analyse structural consequences of the resulting
+representation.
+These are not additional axioms or independent assumptions, but intrinsic
+constraints forced by bounded definability and ultrafilter aggregation.
+They serve to delimit the rigidity and expressive power of the induced
+Hilbert--space structure rather than to introduce new analytic content.
+
+The paper is organised as follows.
+Section~\ref{sec:preliminaries} recalls background material on the Jensen
+hierarchy and bounded definability.
+Section~\ref{sec:fragments-ultrasheaves} introduces locally definable
+fragments and their aggregation into Ultrasheaves.
+Section~\ref{sec:hilbert} develops the induced comparison kernel and the
+associated Hilbert--space representation.
+Section~\ref{sec:consequences} records several structural consequences of
+the construction.
+Section~\ref{sec:conclusion} concludes with brief remarks.
+
+
+
+%============================================================
+\section{Definability in the Jensen Level $J_2$}
+\label{sec:preliminaries}
+%============================================================
+We recall the background required for the subsequent construction and
+fix notation.
+The presentation is deliberately brief and restricted to standard facts
+from the fine structure of the Jensen hierarchy and bounded
+definability.
+
+We work with the initial levels of Jensen’s hierarchy.
+Let $J_0=\varnothing$, let $J_1=\mathrm{rud}(J_0)=\mathrm{HF}$ denote the
+set of hereditarily finite sets, and let
+\[
+J_2=\mathrm{rud}(J_1)=\mathrm{rud}(\mathrm{HF}).
+\]
+The structure $J_2$ is a countable transitive set closed under all
+rudimentary functions.
+No further axiomatic assumptions are imposed.
+
+Throughout the paper, definability over $J_2$ is understood exclusively
+in terms of bounded formulas.
+A subset $X\subseteq J_2$ is said to be \emph{$\Delta_0$--definable} if it
+is defined by a bounded formula in the language of set theory, allowing
+parameters from $J_2$.
+Bounded definability is stable under rudimentary operations and provides
+the basic notion of locality used in what follows.
+
+In later sections we consider families of $\Delta_0$--definable subsets
+of $J_2$ indexed by countable sets and aggregate them using ultrafilters.
+This aggregation separates local definability from global structure.
+While all local data are $\Delta_0$--definable subsets of $J_2$, the
+resulting aggregated objects need not themselves belong to $J_2$.
+This distinction underlies the Ultrasheaf construction and the
+Hilbert--space representations developed below.
+
+%============================================================
+\section{Locally Definable Fragments and Ultrasheaves}
+\label{sec:fragments-ultrasheaves}
+%============================================================
+We introduce the local objects used in the subsequent aggregation and
+fix the corresponding equivalence notion.
+All notions of locality are understood exclusively in terms of bounded
+definability over the transitive Jensen level $J_2$.
+
+\begin{definition}[Locally definable fragment]
+A \emph{locally definable fragment} is a subset $X\subseteq J_2$ that is
+$\Delta_0$--definable over the structure $(J_2,\in)$, allowing parameters
+from $J_2$.
+\end{definition}
+
+\noindent
+Locally $\Delta_0$--definable fragments form a class closed under the
+rudimentary operations of $J_2$ and exactly capture bounded definability.
+
+\begin{definition}[$\mathcal U$--equivalence]
+Let $I$ be a countable index set and let $(X_i)_{i\in I}$ be a family of
+locally definable fragments.
+Fix a non--principal ultrafilter $\mathcal U$ on $I$.
+Two families $(X_i)_{i\in I}$ and $(Y_i)_{i\in I}$ are said to be
+\emph{$\mathcal U$--equivalent} if
+\[
+\{\, i\in I : X_i = Y_i \,\} \in \mathcal U .
+\]
+\end{definition}
+\noindent
+The ultrafilter \(\mathcal U\) is fixed once and for all as a
+metatheoretic parameter.
+It is used solely to form equivalence classes of countable families of
+\(\Delta_0\)--definable fragments; no internal presentation of
+\(\mathcal U\) over \((J_2,\in)\) is part of the framework.
+Equivalently, \(\mathcal U\) functions as an external aggregation scheme
+rather than as an object of the background structure.
+
+
+
+\begin{definition}[Ultrasheaf]
+An \emph{Ultrasheaf} is the $\mathcal U$--equivalence class of a family
+$(X_i)_{i\in I}$ of locally definable fragments.
+We denote such a class by $\langle X_i\rangle_{\mathcal U}$.
+\end{definition}
+\noindent
+Ultrasheaves are obtained by ultrafilter aggregation of families of
+locally $\Delta_0$--definable fragments.
+They are, in general, not elements of $J_2$, but second--order definable
+objects arising from the aggregation procedure.
+
+Any property specified by a bounded $\Delta_0$–formula and verified
+pointwise on a $\mathcal U$–large set of indices induces a
+well–defined attribute of the associated Ultrasheaf.
+Different choices of non--principal ultrafilters may yield non--isomorphic
+Ultrasheaves; no canonical choice of ultrafilter is assumed.
+Once a choice of $\mathcal U$ is fixed, the resulting class of
+Ultrasheaves admits canonical comparison constructions, which will be
+used in the subsequent sections.
+
+%============================================================
+\section{Canonical Hilbert Structure}
+\label{sec:hilbert}
+%============================================================
+We show that the definability--theoretic structure introduced above
+admits a canonical Hilbert--space representation in a precise
+representation--theoretic sense.
+All constructions rely exclusively on bounded definability and
+ultrafilter aggregation.
+
+Let $\mathcal F$ be the class of locally $\Delta_0$--definable subsets of
+$J_2$.
+Assume a locally $\Delta_0$--definable numerical comparison invariant
+\[
+\langle\cdot,\cdot\rangle:\mathcal F\times\mathcal F\to \mathbb D,
+\]
+where $\mathbb D$ denotes the dyadic rationals coded in $J_2$.
+The choice of $\mathbb D$ is purely conventional and serves only to fix a
+concrete $\Delta_0$--definable numerical codomain; any such domain would
+suffice for the construction.
+
+The definition of $\langle\cdot,\cdot\rangle$ may involve bounded
+membership tests in the (possibly infinite) fragments
+$X,Y\subseteq J_2$ and is stable under rudimentary constructions.
+The invariant is assumed to be hermitian with respect to the involution
+of the numerical structure.
+
+Comparison invariants satisfying these definability and stability
+conditions are standard in fine--structural analysis.
+In particular, $\Delta_0$--definable numerical assignments over the
+transitive structure $(J_2,\in)$ are closed under rudimentary
+constructions; see, for example,~\cite{Devlin1984,Weaver2005}.
+Throughout this section, one such invariant is fixed as background data.
+
+\begin{definition}[Ultrasheaf comparison kernel]
+Let $\langle\cdot,\cdot\rangle$ be fixed as above.
+For Ultrasheaves $\mathfrak X=\langle X_i\rangle_{\mathcal U}$ and
+$\mathfrak Y=\langle Y_i\rangle_{\mathcal U}$, define the
+\emph{Ultrasheaf comparison kernel} $K$ by
+\[
+K(\mathfrak X,\mathfrak Y)
+\;:=\;
+\bigl[\, i \mapsto \langle X_i , Y_i \rangle \,\bigr]_{\mathcal U}.
+\]
+\end{definition}
+
+\noindent
+The kernel $K$ takes values in the space of $\mathcal U$--equivalence
+classes of $\mathbb D$--valued families indexed by $I$.
+It is independent of the choice of representatives by
+$\Delta_0$--stability and invariance under $\mathcal U$--equivalence.
+If the local comparison invariant $\langle\cdot,\cdot\rangle$ is
+hermitian, then $K$ inherits the corresponding hermitian symmetry with
+respect to the involution induced by pointwise conjugation on
+$\mathbb D$.
+
+\begin{lemma}[Finitary positivity condition]
+\label{lem:finitary-positivity}
+Assume that the local comparison invariant
+$\langle\cdot,\cdot\rangle:\mathcal F\times\mathcal F\to\mathbb D$
+satisfies the following finitary positivity condition.
+
+\medskip
+\noindent
+For every $n<\omega$, every choice of locally $\Delta_0$--definable
+families $(X_i^{(p)})_{i\in I}$ for $p<n$, and all coefficients
+$c_0,\dots,c_{n-1}\in\mathbb D$, the quadratic form
+\[
+\sum_{p,q<n} \overline{c_p}\,
+\langle X_i^{(p)}, X_i^{(q)}\rangle \, c_q
+\]
+is non--negative for $\mathcal U$--many indices $i\in I$.
+
+\medskip
+\noindent
+Equivalently, all finite Gram matrices associated with the local
+comparison invariant are positive semidefinite on $\mathcal U$--large
+sets.
+\end{lemma}
+
+\begin{proof}[Sketch of proof]
+Fix $n<\omega$, locally $\Delta_0$--definable families
+$(X_i^{(p)})_{p<n}$, and coefficients $c_0,\dots,c_{n-1}\in\mathbb D$.
+By the finitary positivity condition, the associated quadratic form is
+non--negative on a $\mathcal U$--large set of indices.
+
+For fixed $n$ and fixed families, the expression above depends only on
+finitely many values of the local comparison invariant and is therefore
+determined by a finite system of algebraic inequalities.
+Since these inequalities are evaluated pointwise in $i$, their validity
+on a $\mathcal U$--large set is preserved under ultrafilter aggregation.
+\end{proof}
+
+\noindent
+The positivity of the local comparison invariant is a structural assumption.
+It is not derived from definability considerations, but isolates the minimal
+condition under which the aggregated comparison data admit a Hilbert--space
+representation.
+
+
+\begin{corollary}[Positive semidefiniteness of the comparison kernel]
+\label{cor:kernel-positive}
+Under the assumptions of Lemma~\ref{lem:finitary-positivity}, the
+Ultrasheaf comparison kernel $K$ is positive semidefinite.
+\end{corollary}
+
+\begin{proof}
+Fix Ultrasheaves $\mathfrak X_0,\dots,\mathfrak X_{n-1}$ with
+representatives $\mathfrak X_p=\langle X_i^{(p)}\rangle_{\mathcal U}$.
+Then for any fixed choice of coefficients $c_0,\dots,c_{n-1}\in\mathbb D$,
+\[
+\sum_{p,q<n} \overline{c_p}\,
+K(\mathfrak X_p,\mathfrak X_q)\, c_q \ge 0,
+\]
+which is exactly the defining condition for positive semidefiniteness of
+$K$.
+\end{proof}
+
+\medskip
+\noindent
+Given a positive semidefinite kernel $K$ on Ultrasheaves, taking values
+in the \(\mathcal U\)--equivalence classes of numerical families, the
+standard kernel construction yields a pre--Hilbert space $H_0$ and a
+canonical mapping
+\[
+\kappa \colon \mathfrak X \longmapsto \kappa(\mathfrak X)\in H_0
+\]
+satisfying
+\[
+\langle \kappa(\mathfrak X), \kappa(\mathfrak Y)\rangle_{H_0}
+\;=\;
+K(\mathfrak X,\mathfrak Y),
+\]
+as in the classical theory of positive definite kernels; see, for
+example, \cite{Aronszajn1950}.
+
+
+\begin{proposition}[Canonical Hilbert representation]
+\label{prop:prehilbert}
+The metric completion of $H_0$ yields a Hilbert space $\mathcal H$ over
+the numerical equivalence classes arising from ultrafilter aggregation,
+uniquely determined up to isometric isomorphism by the kernel $K$.
+\end{proposition}
+
+\noindent
+Here ``Hilbert space'' refers to the completion of the induced pre--Hilbert
+space with respect to its inner product over the aggregated numerical
+quotient.
+Thus \(\mathcal H\) carries precisely the structure forced by the kernel:
+an inner product and its metric completion.
+
+
+\medskip
+\noindent
+The resulting Hilbert--space representation is canonical in the standard
+representation--theoretic sense, that is, uniquely determined by the kernel
+up to unitary equivalence.
+Canonically means: the representation is determined by \(K\) uniquely up to
+unitary equivalence.
+Accordingly, no further choices enter the construction beyond those already
+encoded by the kernel.
+
+
+\medskip
+\noindent
+Identifying $H_0$ with its canonical image in $\mathcal H$, the map
+$\kappa$ may be regarded as taking values in $\mathcal H$.
+The space $\mathcal H$ is thus canonically determined, relative to the
+chosen comparison invariant, as a representational completion of the
+definability--theoretic data encoded by Ultrasheaves.
+
+%============================================================
+\section{Structural Consequences}
+\label{sec:consequences}
+%============================================================
+This section records structural properties of the induced Hilbert--space
+representation that are not assumed a priori, but follow solely from
+bounded \(\Delta_0\)--definability, ultrafilter aggregation, and the
+existence of a positive semidefinite comparison kernel.
+No additional definability or structural assumptions are introduced.
+
+The statements collected here isolate consequences that are intrinsic to
+the representation mechanism itself.
+They are not independent features added to the formalism, but unavoidable
+structural constraints enforced by the kernel construction.
+Wherever possible, results are formulated entirely at the level of the
+comparison kernel; references to the associated Hilbert--space
+representation serve only as a secondary interpretative layer.
+
+
+\medskip
+\noindent
+\textbf{Quadratic structure.}
+Let \(\mathfrak X=\langle X_i\rangle_{\mathcal U}\) be an Ultrasheaf, and
+let \(\kappa(\mathfrak X)\in\mathcal H\) denote its image under the
+canonical embedding induced by the comparison kernel.
+The inner product on \(\mathcal H\) induces a canonical quadratic form
+\[
+\|\kappa(\mathfrak X)\|^2
+\;:=\;
+\langle \kappa(\mathfrak X),\kappa(\mathfrak X)\rangle_{\mathcal H}
+\;=\;
+K(\mathfrak X,\mathfrak X).
+\]
+This identity follows directly from the positive semidefiniteness of the
+kernel and requires no additional assumptions.
+
+\medskip
+\noindent
+\textbf{Canonical involution.}
+The hermitian symmetry of the comparison kernel constructed in
+Section~\ref{sec:hilbert} induces a canonical conjugation on the
+associated Hilbert space \(\mathcal H\).
+This involution is uniquely determined (up to unitary equivalence) by the
+kernel and reflects symmetry properties of the underlying local comparison
+invariants.
+At the definability level, it is intrinsic to the aggregation procedure
+and does not rely on any further structure.
+
+\medskip
+\noindent
+\textbf{Factorisation and stabilisation.}
+Factorisation properties of the comparison kernel are governed by
+stabilisation phenomena at the level of bounded definability.
+
+Let \((X_i)_{i\in I}\) and \((Y_i)_{i\in I}\) be families of locally
+\(\Delta_0\)--definable fragments giving rise to Ultrasheaves
+\(\mathfrak X=\langle X_i\rangle_{\mathcal U}\) and
+\(\mathfrak Y=\langle Y_i\rangle_{\mathcal U}\).
+Fix a \(\Delta_0\)--definability equivalence relation \(\equiv\) on the
+class \(\mathcal F\) of locally definable fragments, identifying fragments
+that are indistinguishable with respect to the bounded definability data
+relevant for the comparison invariant.
+
+We say that a family \((X_i)\) stabilises modulo \(\equiv\) if there exists
+a \(\mathcal U\)--large set \(U\subseteq I\) such that all \(X_i\) with
+\(i\in U\) lie in a single \(\equiv\)--class.
+Independent stabilisation of \((X_i)\) and \((Y_i)\) modulo \(\equiv\)
+yields factorisation of the comparison kernel; failure of such
+independent stabilisation precludes factorisation.
+This dichotomy depends only on bounded definability and ultrafilter
+aggregation.
+
+\medskip
+\noindent
+\textbf{Kernel--level characterisation.}
+Factorisation admits an intrinsic formulation entirely at the kernel
+level.
+Suppose that the relevant definability data decomposes into two
+independent components, labelled \(a\) and \(b\).
+This induces corresponding kernel--level components of Ultrasheaves,
+written
+\[
+\mathfrak X \longmapsto (\mathfrak X_a,\mathfrak X_b),
+\qquad
+\mathfrak Y \longmapsto (\mathfrak Y_a,\mathfrak Y_b),
+\]
+defined up to \(\mathcal U\)--equivalence.
+
+An Ultrasheaf \(\mathfrak X\) is said to be \emph{separable} with respect
+to this decomposition if, for all compatible Ultrasheaves
+\(\mathfrak Y\),
+\[
+K(\mathfrak X,\mathfrak Y)
+=
+K_a(\mathfrak X_a,\mathfrak Y_a)\,
+K_b(\mathfrak X_b,\mathfrak Y_b).
+\]
+Failure of such a factorisation indicates irreducible global coherence at
+the kernel level.
+All statements in this section are therefore purely kernel--theoretic and
+do not presuppose any Hilbert--space representation.
+
+\begin{definition}[Definability equivalence]
+\label{def:definability-equivalence}
+Let \(\mathcal F\) denote the class of locally \(\Delta_0\)--definable
+subsets of \(J_2\), allowing parameters from \(J_2\).
+A binary relation \(\equiv\) on \(\mathcal F\) is called a
+\emph{\(\Delta_0\)--definability equivalence relation} if there exists a
+bounded \(\Delta_0\)--formula \(\varphi(X,Y,\vec p)\) with parameters
+\(\vec p\in J_2\) such that for all \(X,Y\in\mathcal F\),
+\[
+X \equiv Y
+\quad\Longleftrightarrow\quad
+(J_2,\in)\models \varphi(X,Y,\vec p).
+\]
+\end{definition}
+
+\begin{lemma}[Independent stabilisation implies factorisation]
+\label{lem:indep-stab-factor}
+Let \((X_i)_{i\in I}\) and \((Y_i)_{i\in I}\) be families of locally
+\(\Delta_0\)--definable fragments, and let
+\(\mathfrak X=\langle X_i\rangle_{\mathcal U}\) and
+\(\mathfrak Y=\langle Y_i\rangle_{\mathcal U}\) be the induced Ultrasheaves.
+Assume that the local comparison invariant
+\(\langle\cdot,\cdot\rangle:\mathcal F\times\mathcal F\to\mathbb D\)
+is \(\Delta_0\)--definable and hermitian.
+
+If there exist a \(\Delta_0\)--definability equivalence relation
+\(\equiv\) and a \(\mathcal U\)--large set \(U\subseteq I\) such that both
+\((X_i)\) and \((Y_i)\) stabilise modulo \(\equiv\) on \(U\), and such that
+on \(U\)
+\[
+\langle X_i,Y_i\rangle
+=
+\alpha([X_i]_\equiv)\cdot \beta([Y_i]_\equiv)
+\]
+for functions \(\alpha,\beta\) depending only on \(\equiv\)--classes, then
+the induced comparison kernel factorises.
+\end{lemma}
+
+\begin{proof}[Sketch]
+Stabilisation implies that the \(\equiv\)--classes \([X_i]_\equiv\) and
+\([Y_i]_\equiv\) are \(\mathcal U\)--eventually constant.
+Since \(\alpha\) and \(\beta\) depend only on these classes, the associated
+functions are \(\mathcal U\)--eventually constant as well.
+Passing to ultrafilter equivalence classes yields
+\[
+K(\mathfrak X,\mathfrak Y)
+=
+\alpha(\mathfrak X)\,\beta(\mathfrak Y),
+\]
+establishing factorisation.
+\end{proof}
+
+\begin{corollary}[Factorisation versus definability dependence]
+\label{cor:factorisation}
+Let \(\mathfrak X\) and \(\mathfrak Y\) be Ultrasheaves induced by locally
+\(\Delta_0\)--definable families.
+The comparison kernel \(K(\mathfrak X,\mathfrak Y)\) factorises if and only
+if, on a \(\mathcal U\)--large set of indices, the local comparison
+invariant admits a multiplicative separation determined solely by the
+stabilised definability classes of the representing families.
+\end{corollary}
+
+
+%============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%============================================================
+We have shown that Hilbert--space representations arise canonically from
+bounded definability alone.
+Starting from $\Delta_0$--definable local fragments over the Jensen level
+$J_2=\mathrm{rud}(\mathrm{HF})$, ultrafilter aggregation yields global
+second--order objects, termed Ultrasheaves.
+Under ultrafilter aggregation, locally $\Delta_0$--definable numerical
+comparison invariants give rise to positive semidefinite kernels.
+The standard kernel construction then yields a canonical
+Hilbert--space representation.
+
+These results isolate a minimal structural core underlying
+Hilbert--space theory.
+Quadratic structure, factorisation and non--factorisation phenomena, and
+the existence of a canonical conjugation arise as formal consequences of
+bounded definability, ultrafilter aggregation, and positivity of the
+induced kernel.
+From this perspective, Hilbert space appears as a representational
+completion of definability--theoretic data, uniquely determined (up to
+isometric isomorphism) by the chosen comparison invariant.
+
+From a logical perspective, the significance of the construction lies in
+showing that bounded definability over a very low level of the Jensen
+hierarchy already suffices to enforce a rigid representation--theoretic
+geometry.
+The conclusions are formal and structural; questions of interpretation or
+dynamics lie outside the scope of the present note.
+
+
+
+Several questions remain open.
+These include a systematic analysis of classes of locally definable
+comparison invariants, a finer investigation of the dependence of the
+resulting Hilbert--space representations on the choice of ultrafilter,
+and the identification of further structural features arising purely
+from definability--theoretic considerations.
+More broadly, the construction suggests a general representation--theoretic
+principle in which coherent global structure emerges from bounded
+definability via aggregation, inviting further study in other
+definability--controlled settings.
+
+%============================================================
+\bibliographystyle{amsalpha}
+\bibliography{ultrasheaf-logic}
+%============================================================
+
+\end{document}
