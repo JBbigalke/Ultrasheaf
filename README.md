@@ -4,6 +4,7 @@ Author: Jürgen Bigalke
 Status: Preprint (Version 1.0)  
 Discipline: Mathematical Logic (math.LO)  
 
+DOI: 10.5281/zenodo.18720082
 ---
 
 ## Overview
