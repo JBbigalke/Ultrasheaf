@@ -1,10 +1,9 @@
-# Definability and Global Comparison Structures over J₂ = rud(HF)
+# Ultrafilter Aggregation of ∆0-Definable Fragments and Induced Hilbert Structures
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18720082.svg)](https://doi.org/10.5281/zenodo.18720082)
 
-Author: Jürgen Bigalke 
-Status: Preprint (Version 1.1)  
+Author: Jürgen Bigalke
+Status: Preprint (Version 1.0)  
 Discipline: Mathematical Logic (math.LO)  
-
-DOI: 10.5281/zenodo.18720082
 ---
 
 ## Overview
@@ -15,7 +14,7 @@ Jensen level
 
     J₂ = rud(HF).
 
-The central objective is to analyse how locally Δ₀-definable fragments over
+The central objective is to analyse how countable families of locally Δ₀-definable fragments over
 (J₂, ∈) give rise to canonical global comparison structures via ultrafilter
 aggregation.
 
@@ -89,17 +88,23 @@ Subsequent minor revisions will be versioned incrementally.
 
 ## Citation
 
-If you wish to cite this work, please reference the GitHub release
-or DOI (if available).
+If you wish to cite this work, please reference the DOI.
 
-BibTeX entry will be provided upon DOI registration.
-
+BibTeX entry 
+```bibtex
+@misc{Bigalke2026,
+  author       = {Bigalke, Jürgen},
+  title        = {Ultrafilter Aggregation of $\Delta_0$-Definable Fragments and Induced Hilbert Structures},
+  year         = {2026},
+  howpublished = {Zenodo},
+  doi          = {10.5281/zenodo.18720082}
+}
+```
 ---
 
 ## License
 
-This repository is distributed under the terms specified in LICENSE.
-(Recommended: CC BY 4.0 for academic dissemination.)
+This work is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
 ---
 
